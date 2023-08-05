@@ -51,16 +51,17 @@ const renderCards = async () => {
         if(data.cod===200)
         wetherOfCity.push(data);
     }
-
-    const cardsHtml = wetherOfCity.sort((a,b)=>a.main.temp-b.main.temp).map(makeCard).join('');
+    container.innerHTML=""
+ wetherOfCity.sort((a,b)=>a.main.temp-b.main.temp).map(makeCard).join('');
 };
 
-renderCards()
 
+container.innerHTML="<p style=color:grey>Please add city to view wether...</p>"
 
 const add=()=>{
-arrayOfCity.push(search.value)
-console.log(arrayOfCity)
-container.innerHTML=""
+    let val=search.value.trim()
+    if(!arrayOfCity.includes(val))
+arrayOfCity.push(val)
+container.innerHTML="<p style=color:grey>Loading....</p>"
 renderCards()
 }
