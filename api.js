@@ -1,5 +1,5 @@
 
-const arrayOfCity=[]
+const arrayOfCity=['Pune']
 const getWeatherString = (weatherCondition) => {
     switch (weatherCondition.toLowerCase()) {
         case 'clouds':
@@ -36,7 +36,8 @@ const makeCard = (weather) => {
             <div class="left">
                 <h1 class="temp">${Math.floor(weather.main.temp)}<span>O</span></h1>
                 <p class="text1">H:${Math.floor(weather.main.temp_max)}<span>O</span>L:${Math.floor(weather.main.temp_max)}<span>O</span></p>
-                <p class="text2">${weather.name}</p>
+                <p class="text1">Wind:${weather.wind.deg}<span>O</span>Speed:${Math.floor(weather.wind.speed)} K/h</p>
+                <p class="text2">${weather.name},${weather.sys.country}</p>
             </div>
             <p class="text3">${weather.weather[0].main}</p>
         </div>`;
@@ -54,7 +55,7 @@ const renderCards = async () => {
     container.innerHTML=""
  wetherOfCity.sort((a,b)=>a.main.temp-b.main.temp).map(makeCard).join('');
 };
-
+renderCards()
 
 container.innerHTML="<p style=color:grey>Please add city to view wether...</p>"
 
