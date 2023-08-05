@@ -1,5 +1,5 @@
 
-const arrayOfCity=['Pune']
+const arrayOfCity=[]
 const getWeatherString = (weatherCondition) => {
     switch (weatherCondition.toLowerCase()) {
         case 'clouds':
@@ -61,8 +61,11 @@ container.innerHTML="<p style=color:grey>Please add city to view wether...</p>"
 
 const add=()=>{
     let val=search.value.trim()
-    if(!arrayOfCity.includes(val))
+    
+    if(!arrayOfCity.includes(val)&&val!==""){
 arrayOfCity.push(val)
 container.innerHTML="<p style=color:grey>Loading....</p>"
 renderCards()
+    }
+    search.value=""
 }

@@ -35,7 +35,8 @@ font-size:45px
     flex-wrap: wrap;
 }
 .input-box {
-    width: 596px;
+width:500px;
+max-width: 70vw;
     height: 52px;
     border-radius: 10px;
     padding: 10px; /* Adjust the padding to give the input box more space */
